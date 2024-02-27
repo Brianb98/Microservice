@@ -2,6 +2,9 @@ In the folder are two Python programs.
 "implement_notifications.py" is the actual microservice, it must be continuously run in the background until the specified date of the notification to function properly.
 "call_notifications.py" is a program that gives an example on how to call the microservice.
 
+Make sure you enable notifications from apps and other senders on your computer for this to work.
+I did not have it enabled initially and was not getting notifications.
+
 An outside program must write into "notification_list.txt" a dictionary onto 1 line.
 This dictionary must contain 4 key:value pairs, with the keys being: "title", "body", "date", and "time".
 The value for "title" should be the header you want to appear with the notification.
