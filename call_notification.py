@@ -1,34 +1,25 @@
 import json
-from datetime import datetime
+import os
 
+def schedule_notification(title, body, date, time):
+    notification_details = {
+        "title": title,
+        "body": body,
+        "date": date,
+        "time": time,  
+    }
+    with open("notification_list.txt", "a") as file:
+        file.write(json.dumps(notification_details) + "\n")
 
-def schedule_notification():
-    notification_number = 1  # Start numbering from 1
+def main():
     while True:
         title = input("Title: ")
         body = input("Body: ")
         date = input("Date (YYYY-MM-DD): ")
-        time = input("Time in 24-hour notation (HH:MM): ")
-
-        # Ensure formatting is correct
-        try:
-            notification_datetime = datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M")
-        except ValueError as e:
-            print(f"Error in date/time format: {e}")
-            continue
-
-        # Creates dictionary, this is
-        notification = {
-            "title": title,
-            "body": body,
-            "datetime": notification_datetime.isoformat()
-        }
-
-        with open("notification_list.txt", "a") as file:
-            file.write(json.dumps(notification) + "\n")
-
-        print(f"\nA notification will appear on {date} {time}\n")
-
+        time = input("Time (HH:MM): ")
+        schedule_notification(title, body, date, time)
+        print(f"\n A notification will appear on {date} {time}\n")
 
 if __name__ == "__main__":
-    schedule_notification()
+    main()
+

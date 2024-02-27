@@ -15,7 +15,9 @@ def send_notifications():
         for line in lines:
             try:
                 notification_details = json.loads(line)
-                notification_datetime = datetime.fromisoformat(notification_details["datetime"])
+                # Combine date and time into a datetime object
+                notification_datetime_str = f"{notification_details['date']}T{notification_details['time']}"
+                notification_datetime = datetime.fromisoformat(notification_datetime_str)
 
                 # If it's an approriate time (time in the future), then create the notification.
                 if current_datetime >= notification_datetime:
