@@ -1,5 +1,4 @@
 import json
-import os
 
 def schedule_notification(title, body, date, time):
     notification_details = {
