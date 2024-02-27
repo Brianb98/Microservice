@@ -13,7 +13,9 @@ The value for "date" should be in YYYY-MM-DD format.
 The value for "time" should be in HH:MM format.
 
 This is an example of 2 different notifications that can be accepted when written into "notification_list.txt".
+
 {"title": "Assignment 1", "body": "For Biology", "date": "2024-02-26", "time": "23:59"}
+
 {"title": "Assignment 2", "body": "Don't forget the quiz as well.", "date": "2024-02-28", "time": "21:00"}
 
 If the date or time is given in an inappropriate format, an error will be given.
